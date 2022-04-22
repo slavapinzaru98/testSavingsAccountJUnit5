@@ -22,7 +22,7 @@ class SavingsAccountTest {
 
         savingsAccountInvalidInput.calculateMonthlyInterest();
         double result = savingsAccountInvalidInput.getSavingsBalance();
-        assertEquals(3010.0, result);
+        assertEquals(Input.NEGATIVE_INPUT, result);
     }
 
     @Test

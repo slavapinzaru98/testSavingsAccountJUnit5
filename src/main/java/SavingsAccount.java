@@ -11,9 +11,6 @@ public class SavingsAccount {
     public void calculateMonthlyInterest() {
         if (savingsBalance > 0) {
             savingsBalance += (savingsBalance * annualInterestRate) / 12;
-        }else {
-            savingsBalance *= -1;
-            savingsBalance += (savingsBalance * annualInterestRate) / 12;
         }
     }
 
