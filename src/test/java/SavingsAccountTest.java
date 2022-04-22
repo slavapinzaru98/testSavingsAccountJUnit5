@@ -6,7 +6,7 @@ class SavingsAccountTest {
 
 
     @Test
-    void getSavingsBalanceWithValidDataTest() {
+    void calculateMonthlyInterestWithValidDataTest() {
         SavingsAccount savingsAccountValidInput = new SavingsAccount("11111111", Input.POSITIVE_INPUT);
         SavingsAccount.annualInterestRate = 0.04;
 
@@ -16,7 +16,7 @@ class SavingsAccountTest {
     }
 
     @Test
-    void getSavingsBalanceWithInvalidDataTest() {
+    void calculateMonthlyInterestWithInvalidDataTest() {
         SavingsAccount savingsAccountInvalidInput = new SavingsAccount("11111111", Input.NEGATIVE_INPUT);
         SavingsAccount.annualInterestRate = 0.04;
 
