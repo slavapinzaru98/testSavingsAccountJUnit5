@@ -27,8 +27,6 @@ class SavingsAccountTest {
         try {
             if (result <= 0) {
                 throw new Exception("result must be positive");
-            } else {
-                assertEquals(3010.0, result);
             }
         } catch (Exception exception) {
             assertEquals("result must be positive", exception.getMessage());
