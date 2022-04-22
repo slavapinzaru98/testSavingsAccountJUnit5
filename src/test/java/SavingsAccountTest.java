@@ -2,8 +2,6 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
 class SavingsAccountTest {
 
 
@@ -24,13 +22,25 @@ class SavingsAccountTest {
 
         savingsAccountInvalidInput.calculateMonthlyInterest();
         double result = savingsAccountInvalidInput.getSavingsBalance();
-        try {
-            if (result <= 0) {
-                throw new Exception("result must be positive");
-            }
-        } catch (Exception exception) {
-            assertEquals("result must be positive", exception.getMessage());
-        }
+        assertEquals(savingsAccountInvalidInput.getSavingsBalance(), result);
+    }
+
+    @Test
+    void transferFundsWithValidDataTest() {
+        SavingsAccount saver1 = new SavingsAccount("11111111", 2000);
+        SavingsAccount saver2 = new SavingsAccount("22222222", 3000);
+        SavingsAccount.transferFunds(Input.ENOUGH_FUNDS_FOR_TRANSFER, saver1, saver2);
+        assertEquals(saver1.getSavingsBalance(), 1300);
+        assertEquals(saver2.getSavingsBalance(), 3700);
+    }
+
+    @Test
+    void transferFundsWithInvalidDataTest() {
+        SavingsAccount saver1 = new SavingsAccount("11111111", 2000);
+        SavingsAccount saver2 = new SavingsAccount("22222222", 3000);
+        SavingsAccount.transferFunds(Input.NOT_ENOUGH_FUNDS_FOR_TRANSFER, saver1, saver2);
+        assertEquals(saver1.getSavingsBalance(), 2000);
+        assertEquals(saver2.getSavingsBalance(), 3000);
     }
 
 }
